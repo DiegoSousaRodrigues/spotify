@@ -1,0 +1,12 @@
+// .eslintrc.json
+{
+  "extends": [
+    "next",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "quotes": ["error", "single"], // Enforce single quotes
+    "semi": ["error", "never"] // Disallow semicolons
+  }
+}
