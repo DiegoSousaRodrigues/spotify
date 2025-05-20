@@ -1,10 +1,7 @@
+import { HomeScreen } from '@/components/HomeScreen/HomeScreen'
+
 export default function Page() {
-  return (
-    <div>
-      <h1 className="">Hello, world!</h1>
-      <p>This is a simple Next.js page.</p>
-    </div>
-  )
+  return <HomeScreen />
 }
 
 export async function getServerSideProps() {
