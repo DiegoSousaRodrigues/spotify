@@ -3054,6 +3054,11 @@ which@^2.0.1:
   dependencies:
     isexe "^2.0.0"
 
+windstitch@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/windstitch/-/windstitch-0.3.0.tgz#ebb97d13098fca51286feee5b3103c681ad8b61d"
+  integrity sha512-xn48NPYKCcj8QHfn2/sQGF/zWRuHfSweRkUnSQnL6Szoyp7L2D6b+XbjlQY8FW8BIzc2Rq3ltx0Z5KpfFLyJkw==
+
 word-wrap@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.5.tgz#d2c45c6dd4fbce621a66f136cbe328afd0410b34"

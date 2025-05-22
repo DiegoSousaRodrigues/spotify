@@ -5,11 +5,14 @@
   --foreground: #171717;
 }
 
-@theme inline {
-}
-
-@media (prefers-color-scheme: dark) {
+html {
+  height: 100vh;
 }
 
 body {
+  height: 100%;
+}
+
+#__next {
+  height: 100%;
 }
