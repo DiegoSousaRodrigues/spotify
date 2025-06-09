@@ -6,5 +6,5 @@ export function HomeScreen() {
 
   console.log(data)
 
-  return <div>teste</div>
+  return <div>Millions of Songs. Free on Spotify.</div>
 }
