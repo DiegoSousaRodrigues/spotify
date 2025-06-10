@@ -1,9 +1,4 @@
-import {
-  Header,
-  Title,
-  Wrapper,
-  WrapperConnectExternal,
-} from './LoginScreen.styles'
+import { Header, Title, Wrapper, WrapperConnectExternal } from './LoginScreen.styles'
 import { FaApple, FaFacebook, FaSpotify } from 'react-icons/fa'
 import ConnectExternal from '../ConnectExternal'
 import { FcGoogle } from 'react-icons/fc'
@@ -11,6 +6,7 @@ import Input from '../Input'
 import { Controller, useForm } from 'react-hook-form'
 import { AuthenticationForm } from './LoginScreen.types'
 import axios from 'axios'
+import { useRouter } from 'next/router'
 
 const connectExternalMock = [
   { name: 'Continuar com Google', icon: <FcGoogle size={24} /> },
@@ -26,10 +22,16 @@ const connectExternalMock = [
 ]
 
 export function LoginScreen() {
+  const router = useRouter()
   const { handleSubmit, control } = useForm<AuthenticationForm>()
 
-  async function onSubmit(data: AuthenticationForm) {
-    await axios.post('/api/token', data)
+  async function onSubmit(authenticationForm: AuthenticationForm) {
+    const { status, data } = await axios.post('/api/token', authenticationForm)
+    if (status === 200) {
+      router.push('/')
+    } else {
+      console.error(data)
+    }
   }
 
   return (
@@ -49,12 +51,7 @@ export function LoginScreen() {
           name="clientId"
           rules={{ required: true }}
           render={({ field: { onChange, value } }) => (
-            <Input
-              label="Client Id"
-              onChange={onChange}
-              value={value}
-              placeholder="Client Id"
-            />
+            <Input label="Client Id" onChange={onChange} value={value} placeholder="Client Id" />
           )}
         />
 
@@ -63,19 +60,11 @@ export function LoginScreen() {
           name="clientSecret"
           rules={{ required: true }}
           render={({ field: { onChange, value } }) => (
-            <Input
-              label="Client Secret"
-              onChange={onChange}
-              value={value}
-              placeholder="Client Secret"
-            />
+            <Input label="Client Secret" onChange={onChange} value={value} placeholder="Client Secret" />
           )}
         />
 
-        <button
-          type="submit"
-          className="w-full bg-green-500 rounded-[28px] py-3 text-black font-bold text-lg"
-        >
+        <button type="submit" className="w-full bg-green-500 rounded-[28px] py-3 text-black font-bold text-lg cursor-pointer">
           Entrar
         </button>
       </form>
