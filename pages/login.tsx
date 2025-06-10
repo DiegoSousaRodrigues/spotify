@@ -1,13 +1,15 @@
 import LoginScreen from '@/components/LoginScreen'
-import { getSession } from '@/utils/session'
-import { NextApiRequest, NextApiResponse } from 'next'
+import { PageProps } from '@/types/page'
+import { TokenResponse } from '@/utils/session'
+import { withLogin } from '@/utils/withLogin'
 
-export default function Page() {
+export default function Page({ isLoggedIn }: PageProps) {
+  if (isLoggedIn) {
+    //TODO redirect to home page
+  }
   return <LoginScreen />
 }
 
-export const getServerSideProps = async (context: { req: NextApiRequest; res: NextApiResponse }) => {
-  const session = await getSession(context.req, context.res)
-  console.log(session)
-  return { props: {} }
-}
+export const getServerSideProps = withLogin(async (session: TokenResponse) => {
+  return { props: { session } }
+})
