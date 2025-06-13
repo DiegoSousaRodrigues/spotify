@@ -1,18 +1,15 @@
 @import 'tailwindcss';
 
+html,
+body,
+#__next {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: black; /* ou a cor do fundo da sua aplicação */
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-html {
-  height: 100vh;
-}
-
-body {
-  height: 100%;
-}
-
-#__next {
-  height: 100%;
 }

@@ -1,3 +1,3 @@
 import { w } from 'windstitch'
 
-export const Wrapper = w.div('h-full bg-[#121212]')
+export const Wrapper = w.div('flex flex-col h-full bg-[#121212]')
